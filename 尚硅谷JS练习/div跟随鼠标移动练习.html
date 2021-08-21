@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月10日14:45:57</title>
+    <style>
+        #box1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        body {
+            height: 1000px;
+            width: 3000px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box1"></div>
+
+    <script>
+        //获取box1
+        var box1 = document.getElementById("box1");
+        //获取body
+        var html = document.documentElement;
+
+        //console.log(html);
+        //绑定鼠标响应函数
+        html.onmousemove = function(event){
+            //获取到鼠标的坐标
+            var x = event.clientX;
+            var y = event.clientY;
+
+            //获取st和sl, 兼容性写法
+            var st = document.body.scrollTop || document.documentElement.scrollTop;
+            var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+
+            //解决兼容性问题
+            event = event || window.event;
+
+            //设置box1的偏移量
+            //下面这些是只读的没用
+            //box1.offsetLeft = x;
+            //box1.offsetTop = y;
+
+            //偏移量只对开启定位的元素有用
+            box1.style.left = x + sl + "px";
+            box1.style.top = y + st + "px";
+        }; 
+        
+
+
+
+    </script>
+</body>
+</html>

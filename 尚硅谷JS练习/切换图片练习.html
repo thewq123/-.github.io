@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月15日09:44:08</title>
+    <style>
+        img {
+            width: 500px;
+            height: 400px;
+            /*overflow: hidden;*/
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/images/炮1.jpeg" alt="">
+    <br><br>
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+
+
+
+
+
+
+    <script>
+
+        //获取照片
+        var img = document.getElementsByTagName("img")[0];
+        //获取btn01
+        var btn01 = document.getElementById("btn01");
+
+        //创建一个标识符
+        var timer;
+
+        btn01.onclick = function () {
+            //创建一个索引
+            var index = 0;
+
+            //在开启定时器之前需要关闭上一个定时器
+            clearInterval(timer);
+
+            /**
+             *  目前我们每点一次按钮就会开启一个定时器 
+             *      点击多次就会开启多个定时器, 这就导致图片的切换速度过快
+             *      并且我们只能关闭最后开启的定时器
+             */
+
+            //创建一个定时器
+            timer = setInterval(function () {
+                //创建一个索引, 保存图片地址
+                var imgArr = ["/images/炮1.jpeg", "/images/炮2.jpeg", "/images/炮3.jpeg", "/images/炮4.jpeg", "/images/5.jpg"];
+
+
+
+                index++;
+
+                if (index == imgArr.length) {
+                    index = 0;
+                }
+
+                img.src = imgArr[index];
+
+            }, 1000);
+
+        };
+
+        //获取btn02
+        var btn02 = document.getElementById("btn02");
+        btn02.onclick = function(){
+            clearInterval(timer);
+        };
+
+
+    </script>
+</body>
+
+</html>

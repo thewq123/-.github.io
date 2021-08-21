@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if练习3</title>
+    <style>
+        #btn01 {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body> 
+    <button id="btn01">刷新</button>
+
+    <script>
+        // 获取按钮btn01
+        let btn01 = document.getElementById("btn01");
+        btn01.onclick = function(){
+            window.location.reload();
+        }
+
+        // 三个数比大小2021年7月22日16:39:50
+        let num1;
+        let num2;
+        let num3;
+
+        //获取用户输入的三个数
+        /* 
+            prompt()函数的返回值时string类型的
+         */
+
+        num1 = +prompt("输入num1");
+        num2 = +prompt("请输入num2");
+        num3 = +prompt("请输入num3");
+
+        // alert(num1+ "-" + num2 + "-" + num3);
+        
+        /*无注释, 但实现了相等的版本1.0
+       if(num1 > num2){
+           if(num1 > num3 && num2 > num3){
+               alert(num3+ "<" +num2+ "<" +num1);
+           }else if(num1 > num3 && num2 < num3){
+               alert(num2+ "<" +num3+ "<" +num1);
+           }else if(num2 < num3){
+                alert(num2+ "<" +num1+ "<" +num3);
+           }else if(num2 === num3){
+               alert(num2+ "=" +num3+ "<" +num1);
+           }
+       }else if(num2 > num1){
+            if(num2 > num3 && num1 > num3){
+               alert(num3+ "<" +num1+ "<" +num2);
+           }else if(num2 > num3 && num1 < num3){
+               alert(num1+ "<" +num3+ "<" +num2);
+           }else if(num2 < num3){
+                alert(num1+ "<" +num2+ "<" +num3);
+           }else if(num1 === num3){
+               alert(num1+ "=" +num3+ "<" +num2);
+           }
+       }else if(num1 === num2){
+           if(num1 === num3){
+               alert(num3+ "=" +num2+ "=" +num1);
+           }else if(num1 < num3){
+               alert(num1+ "=" +num2+ "<" +num3);
+           }else{
+                alert(num3+ "<" +num1+ "=" +num2);
+           }
+       }else{
+           alert("您输入的值有误");
+        }
+        */
+
+        //看视频后升级的2.0版本
+        //找到三个数中最小的值
+        //老师的思路是把每个最小的数列出来
+        //num1最小
+        if(num1 < num2 && num1 < num3){
+            if(num2 > num3){
+                
+                alert(num1+ "," +num3+ "," +num2);
+            }else{
+                
+                alert(num1+ "," +num2+ "," +num3);
+
+            }
+        }else if(num2 < num1 && num2 < num3){
+            //num2最小
+            if(num1 > num3){
+                
+                alert(num2+ "," +num3+ "," +num1);
+            }else{
+                
+                alert(num2+ "," +num1+ "," +num3);
+
+            }
+        }else{
+            //num3最小
+            if(num1 > num2){
+                
+                alert(num3+ "," +num2+ "," +num1);
+            }else{
+                
+                alert(num3+ "," +num1+ "," +num2);
+
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月6日12:59:49</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 14px;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            box-sizing: border-box;
+            width: 800px;
+            height: 500px;
+            margin: 25px auto;
+            /* background-color: purple; */
+        }
+        .box .left {
+            float: left;
+            width: 396px;
+            height: 500px;
+            margin-right: 0;
+            margin-top: 0;
+            border: 1px solid #ccc;
+            /* background-color: rgb(71, 69, 69); */
+        }
+        .box .left .top{
+            width: 100%;
+            height: 300px;
+            /* background-color: red; */
+        }
+        .box .left .top h2 {
+            margin-left: 30px;
+        }
+        .box .left .top ul {
+            padding-top: 20px;
+        }
+        .box .left .top li {
+            display: inline-block;
+            margin: 10px 15px;
+            background-color: #bfa;
+            padding: 3px;
+        }
+        .box .left .bottom{
+            width: 100%;
+            height: 175px;
+            margin-top: 25px;
+            /* background-color: green; */
+        }
+        .box .left .bottom form {
+            padding-top: 25px;
+        }
+        .box .right {
+            float: right;
+            width: 400px;
+            height: 100%;
+            margin-left: 0;
+            border: 1px solid #ccc;
+            /* background-color: yellow; */
+        }
+        .box .right button {
+            width: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">
+            <div class="top">
+                <ul id="city">
+                    <h2>你喜欢那个城市?</h2>
+                    <li id="bj">北京</li>
+                    <li>上海</li>
+                    <li>东京</li>
+                    <li>首尔</li>
+                </ul>
+                <ul>
+                    <h2>你喜欢哪款单击游戏</h2>
+                    <li>红警</li>
+                    <li>实况</li>
+                    <li>极品飞车</li>
+                    <li>魔兽</li>
+                </ul>
+                <ul id="phone">
+                    <h2>你手机的操作系统是?</h2>
+                    <li>IOS</li>
+                    <li id="anddroid">Android</li>
+                    <li>Windows phone</li>
+                </ul>
+            </div>
+            <div class="bottom">
+              <form action="">
+                gender:<input type="radio" name="gerder" value="Male"> Male <input type="radio" name="gerder" value="Female"> Female
+                <br>   
+                name: <input type="search" id="username" value="name">
+              </form>
+            </div>
+        </div>
+        <div class="right">
+            <button id="btn01">查找#bj节点</button>
+            <button id="btn02">查找所有li节点</button>
+            <button id="btn03">查找name=gender的所有节点</button>
+            <button id="btn04">查找#city下所有li节点</button>
+            <button id="btn05">返回#city下所有子节点</button>
+            <button id="btn06">返回#phone的第一个子节点</button>
+            <button id="btn07">返回#jb的父节点</button>
+            <button id="btn08">返回#anddroid的前一个兄弟节点</button>
+            <button id="btn09">返回#username的value属性</button>
+            <button id="btn10">设置#username的value属性</button>
+            <button id="btn11">返回#bj的文本值</button>
+        </div>
+    </div>
+
+    <script>
+
+        /**
+         *  定义一个函数, 专门用来为指定元素绑定单击响应函数
+         *      参数:
+         *          idStr 要绑定单击响应函数的对象的id属性值
+         *          fun 事件的回调函数, 当单击元素时, 该函数将会被触发 
+         */
+        function myClick(idStr, fun){
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+
+        /* 
+            查找#bj节点</button>
+            查找所有li节点</button>
+            查找name=gender的所有节点</button>
+            查找#city下所有li节点</button>
+            返回#city下所有子节点</button>
+            返回#phone的第一个子节点</button>
+            返回#jb的父节点</button>
+            返回#anddroid的前一个兄弟节点</button
+            返回#username的value属性</button>
+            设置#username的value属性</button>
+            返回#bj的文本值</button>
+        */
+       //为btn01绑定单击响应函数
+       var btn01 = document.getElementById("btn01");
+       var bj = document.getElementById("bj");
+
+       btn01.onclick = function(){
+           console.log(bj.innerHTML);
+       };
+
+       //查找所有li节点
+       //为btn02绑定单击响应函数
+       //getElementsByTagName()可以根据标签名来获取一组元素节点对象
+       //这个方法会给我们返回一个类数组对象, 所有查询到的元素都会封装到对象中
+       var btn02 = document.getElementById("btn02");
+       var lis = document.getElementsByTagName("li");
+       btn02.onclick = function(){
+           //遍历lis
+           for(var i=0; i<lis.length; i++){
+               console.log(lis[i]);
+           }
+       };
+
+
+        //查找name=gender的所有节点
+       //为btn03绑定单击响应函数
+       var btn03 = document.getElementById("btn03");
+       var nameGender = document.getElementsByName("gerder");
+       btn03.onclick = function(){
+            
+            for(var i=0; i<nameGender.length; i++){
+               console.log(nameGender[i].value);
+           }
+       };
+
+
+       //查找#city下所有li节点
+       var btn04 = document.getElementById("btn04");
+       var city = document.getElementById("city");
+       var cityLis = city.getElementsByTagName("li");
+
+       //为btn04绑定单击响应函数
+       btn04.onclick = function(){
+            //遍历city下所有的li
+            for(var i=0; i<cityLis.length; i++){
+               console.log(cityLis[i]);
+            }
+       };
+
+
+       //返回#city下所有子节点
+       //为btn05绑定单击响应函数
+       var btn05 = document.getElementById("btn05");
+       btn05.onclick = function(){
+           //获取所有的子节点
+            //var chi = city.childNodes;
+
+            var chi = city.children;
+
+            //遍历city下所有的子节点
+            for(var i=0; i<chi.length; i++){
+               console.log(chi[i].innerHTML);
+            }
+       };
+       
+
+       //返回#phone的第一个子节点
+       //为btn06绑定单击响应函数
+       var btn06 = document.getElementById("btn06");
+       btn06.onclick = function(){
+           //获取phone
+           var phone = document.getElementById("phone");
+           var firstson = phone.firstChild;
+           
+        //var firstson = phone.firstChild;
+        var firstson = phone.firstElementChild;
+
+
+           console.log(firstson);
+       };
+
+
+       //返回#jb的父节点
+       //为btn07绑定单击响应函数
+       myClick("btn07", function(){
+            //获取bj
+            var bj = document.getElementById("bj");
+            
+            var bjFather = bj.parentNode;
+
+            console.log(bjFather);
+       });
+       
+
+       //返回#anddroid的前一个兄弟节点
+       //为btn08绑定单击响应函数
+       myClick("btn08", function(){
+           //获取anddroid
+           var anddroid = document.getElementById("anddroid");
+           var pBro = anddroid.previousSibling;
+
+           console.log(pBro);
+       })
+
+
+       //返回#username的value属性
+       //为btn09绑定单击响应函数
+       //文本框的value属性值, 就是文本框中填写的内容
+       myClick("btn09", function(){
+           //获取username
+           var username = document.getElementById("username");
+           var uv = username.value;
+           console.log(uv);
+       })
+
+
+       //设置#username的value属性
+       //为btn09绑定单击响应函数
+       myClick("btn10", function(){
+           //获取username
+           var username = document.getElementById("username");
+           var uv = username.value = "ab";
+           console.log(uv);
+       })
+
+
+       //返回#bj的文本值
+       //为btn09绑定单击响应函数
+       myClick("btn11", function(){
+           //获取bj
+           var bj = document.getElementById("bj");
+            //var bjText = bj.innerHTML;
+            //console.log(bjText);
+            //获取bj中的文本节点
+            console.log(bj.firstChild.nodeValue);
+       })
+
+    </script>
+</body>
+</html>

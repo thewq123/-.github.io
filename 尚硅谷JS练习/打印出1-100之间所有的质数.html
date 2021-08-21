@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年7月25日15:09:29</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+
+        //打印出1-100所有的质数
+        //打印1-100的数
+        for(let i=2; i<=100; i++){
+            //设置旗帜
+            let flag = true;
+            for(let j=2; j<i; j++){
+
+                //判断其中的数是否是质数
+                if(i % j == 0){
+                    //如果进入则证明i不是质数
+                    flag = false;
+                }
+            }
+            
+            if(flag){
+                 document.write(i+ "<br>");
+            }
+        }
+
+
+    </script>
+</body>
+</html>

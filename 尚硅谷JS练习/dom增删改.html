@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月8日21:08:39</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            height: 400px;
+            width: 800px;
+            margin: 20px auto;
+            /* background-color: pink; */
+        }
+
+        .box .left {
+            float: left;
+            width: 390px;
+            /* height: 200px; */
+            border: 5px solid #ccc;
+        }
+
+        .box .left p {
+            /* display: inline-block; */
+            margin: 20px 0 20px 20px;
+        }
+
+        .box .left ul li {
+            display: inline-block;
+            padding: 7px;
+            margin-left: 20px;
+            background-color: #bfa;
+        }
+
+        .box .right {
+            float: right;
+            width: 400px;
+            height: 200px;
+        }
+
+        button {
+            width: 380px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            <p>你喜欢那个城市?</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>深圳</li>
+                <li>长沙</li>
+            </ul>
+        </div>
+        <div class="right">
+
+
+            <button id="btn01">创建一个"广州"节点添加到#city下</button>
+            <button id="btn02">将"广州"节点插入到#bj前面</button>
+            <button id="btn03">使用"广州"节点替换#bj节点</button>
+            <button id="btn04">删除#bj节点</button>
+            <button id="btn05">读取#city内的HTML代码</button>
+            <button id="btn06">设置#bj内的HTML代码</button>
+            <button id="btn07">创建一个"广州"节点添加到#city下</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        function myClick(idStr, fun) {
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+
+        //获取city节点
+        var city = document.getElementById("city");
+
+        //为btn01绑定
+        myClick("btn01", function () {
+
+            //创建li元素节点
+            var li = document.createElement("li");
+
+            //创建文本节点
+            var gZText = document.createTextNode("广州");
+
+            //把文本节点放入li元素中
+            li.appendChild(gZText);
+
+            //把元素节点放入city中
+            city.appendChild(li);
+
+        })
+
+
+        //将"广州"节点插入到#bj前面
+        //为btn02绑定
+        myClick("btn02", function () {
+            //创建li元素节点
+            var li = document.createElement("li");
+
+            //创建文本节点
+            var gZText = document.createTextNode("广州");
+
+            //把文本节点放入li元素中
+            li.appendChild(gZText);
+
+            //获取bj
+            var bj = document.getElementById("bj");
+
+            //将"广州"节点插入到#bj前面
+            bj.parentNode.insertBefore(li, bj);
+        })
+
+
+        //使用"广州"节点替换#bj节点
+        //为btn03绑定
+        myClick("btn03", function () {
+            //创建li元素节点
+            var li = document.createElement("li");
+
+            //创建文本节点
+            var gZText = document.createTextNode("广州");
+
+            //把文本节点放入li元素中
+            li.appendChild(gZText);
+
+            //获取bj
+            var bj = document.getElementById("bj");
+
+            bj.parentNode.replaceChild(li, bj);
+        })
+
+
+        //使删除#bj节点
+        //为btn04绑定
+        myClick("btn04", function () {
+            
+            //获取bj
+            var bj = document.getElementById("bj");
+
+            bj.parentNode.removeChild(bj);
+        })
+
+
+        //读取#city内的HTML代码
+        //为btn05绑定
+        myClick("btn05", function () {
+            
+            //获取bj
+            var bj = document.getElementById("bj");
+
+            console.log(bj.parentNode.innerHTML);
+        })
+
+
+        //设置#bj内的HTML代码
+        //为btn06绑定
+        myClick("btn06", function () {
+            
+            //获取bj
+            var bj = document.getElementById("bj");
+
+            bj.innerHTML = "长沙";
+
+        })
+
+        //为btn07绑定
+        myClick("btn07", function () {
+            
+            //获取bj
+            var city = document.getElementById("city");
+
+            // city.innerHTML += "<li>广州<li>";
+            //创建一个元素节点
+            var li = document.createElement("li");
+
+            //向li中添加文本
+            li.innerHTML = "广州";
+
+            //将li添加到city中
+            city.appendChild(li);
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>

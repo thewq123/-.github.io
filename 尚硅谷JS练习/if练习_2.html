@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if练习二</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let height;
+        let money;
+        let shuai;
+
+        height = prompt("请输入您的身高:");
+        money = prompt("请输入您的财产(单位: 万):");
+        shuai = prompt("请输入您的颜值(1~1000+):");
+
+        if(height >= 180 && money >= 1000 && shuai >=500){
+            alert("我一定要嫁给他");
+        }else if(height >= 180 || money >= 1000 || shuai >=500){
+            alert("嫁吧, 比上上不足比下有余.");
+        }else{
+            alert("不嫁!");
+        };
+
+    </script>
+</body>
+</html>

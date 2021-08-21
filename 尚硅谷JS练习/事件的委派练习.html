@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月10日15:59:40</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">添加超链接</button>
+
+    <ul id="u1">
+        <li><a href="javascript:;" class="link">超链接</a></li>
+        <li><a href="javascript:;" class="link">超链接</a></li>
+        <li><a href="javascript:;" class="link">超链接</a></li>
+
+    </ul>
+
+    <script>
+        //获取ul
+        var ul = document.getElementById("u1");
+
+        //为ul绑定一个响应函数, 通过冒泡减少很多的麻烦
+        ul.onclick = function (event) {
+            event = event || window.event;
+            if (event.target.className == "link") {
+                alert("事件的委派");
+
+            }
+        }
+        //为a绑定单击响应函数
+        //...
+        //获取btn
+        var btn = document.getElementById("btn");
+        //绑定单击响应函数
+        btn.onclick = function () {
+            //创建一个li
+            var li = document.createElement("li");
+
+            li.innerHTML = "<a href='javascript:;' class= 'link'>新超链接</a>"
+
+            //把li放入ul
+
+
+            ul.appendChild(li);
+        };
+
+
+
+    </script>
+</body>
+
+</html>

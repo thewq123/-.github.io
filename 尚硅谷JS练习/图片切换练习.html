@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月7日13:51:26</title>
+</head>
+<style>
+    #outer {
+        margin: 0 auto;
+        width: 550px;
+        height: 400px;
+        text-align: center;
+        background-color: #bfc;
+    }
+    #outer img {
+        width: 500px;
+        height: 300px;
+        /* margin-top: 45px; */
+    }
+   
+</style>
+<body>
+    <div id="outer">
+        <p id="info">一共5张图, 这是第1张</p>
+
+        <img src="/images/1.jpg" alt="皮">
+
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+
+    <script>
+        //或取到img
+        var img = document.getElementsByTagName("img")[0];
+
+        //创建一个数组来保存图片的地址
+        var imgArr = ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg", "/images/4.jpg", "/images/5.jpg"];
+
+        //创建一个索引
+        var index = 0;
+
+        //获取到info
+        var info = document.getElementById("info");
+        info.innerHTML = "一共"+ imgArr.length +"张图, 这是第"+ (index+1) +"张"
+
+
+        //先获取两个按钮
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        //绑定单击响应函数
+        prev.onclick = function(){
+            index--;
+            if(index < 0){
+                index = 4;
+            }
+            img.src = imgArr[index];
+            info.innerHTML = "一共"+ imgArr.length +"张图, 这是第"+ (index+1) +"张"
+
+        };
+
+        next.onclick = function(){
+            index++;
+            if(index > 4){
+                index = 0;
+            }
+            img.src = imgArr[index];
+            info.innerHTML = "一共"+ imgArr.length +"张图, 这是第"+ (index+1) +"张"
+
+        };
+
+
+
+    </script>
+</body>
+</html>

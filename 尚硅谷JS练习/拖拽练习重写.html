@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月13日13:58:20</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        #box1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            /* 要浮动偏移量才有用 */
+            background-color: red;
+            /*float: left;*/
+        }
+        #box2 {
+            position: absolute;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            /* 要浮动偏移量才有用 */
+            background-color: purple;
+            /*float: left;*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+
+
+    <script>
+        /* 拖拽box1
+        - 拖拽的流程
+            1. 当鼠标在被拖拽的元素上按下时, 开始拖拽onmousedown
+            2. 当鼠标移动时被拖拽元素跟随鼠标移动onmousemove
+            3. 当鼠标松开时, 被拖拽元素固定在当前位置onmouseup 
+            */
+
+        //获取box1
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+
+
+
+
+        //创建一个函数
+        //参数obj
+        var drag = function (obj) {
+            //为box1绑定onmousedown
+            obj.onmousedown = function (event) {
+                //对付IE8
+                obj.setCapure && obj.setCapure();
+
+                event = event || window.event;
+
+                var ol = event.clientX - obj.offsetLeft;
+                var ot = event.clientY - obj.offsetTop;
+
+                //创建鼠标拖拽事件
+                document.onmousemove = function (event) {
+
+                    //兼容性写法
+                    event = event || window.event;
+
+                    //获取鼠标在文档的坐标
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+
+                    //一定要记得加px
+                    obj.style.left = left + "px";
+                    obj.style.top = top + "px";
+                };
+                //有一个问题当我点击之后它会一直粘着所以要onmouseup
+                //要给文档绑定, 不然有其他元素会出毛病
+                document.onmouseup = function () {
+                    //释放onmousemove
+                    document.onmousemove = null;
+                    //alert("jksdjf");
+                    //把onmouseup也要释放了
+                    document.onmouseup = null;
+                    //取消捕获
+                    obj.releaseCapture && obj.releaseCapture();
+                }
+
+                return false;
+            };
+        };
+
+        drag(box1);
+        drag(box2);
+
+
+    </script>
+</body>
+
+</html>

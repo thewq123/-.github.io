@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月10日14:24:27</title>
+    <style>
+        #top {
+            height: 200px;
+            width: 500px;
+            border: 1px solid #000;
+           margin-bottom: 25px;
+        }
+        #bottom {
+            height: 100px;
+            width: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="top"></div>
+<div id="bottom"></div>
+
+    <script>
+
+        //获取top
+        var top = document.getElementById("top");
+        //获取bottom
+        var bottom = document.getElementById("bottom");
+        top.onmousemove = function(event){
+            if(!event){
+                event = window.event;
+            }
+            var x = event.clientX;
+            var y = event.clientY;
+
+            bottom.innerHTML = "X="+ x + " Y="+ y;
+        }
+
+    </script>
+</body>
+</html>

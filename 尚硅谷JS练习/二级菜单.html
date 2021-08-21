@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月18日14:58:02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        .sdmenu {
+            margin: 20px auto;
+            width: 183px;
+            /*height: 144px;*/
+            background-color: #ccc;
+        }
+
+        .sdmenu ul {
+            list-style: none;
+        }
+
+        .sdmenu ul li {
+            overflow: hidden;
+            display: block;
+            /*height: 36px;*/
+            color: rgb(12, 75, 209);
+            text-align: center;
+        }
+
+        .sdmenu ul li span {
+            display: block;
+            height: 36px;
+            background-color: rgba(59, 58, 59, 0.5);
+        }
+
+        .sdmenu ul li a {
+            height: 36px;
+            display: block;
+        }
+
+        .sdmenu ul .colse {
+            height: 36px;
+        }
+
+        .sdmenu ul .open {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="my_menu" class="sdmenu">
+        <ul id="tools">
+            <li>
+                <span class="menuSpan">在线工具</span>
+                <a href="#">图像优化</a>
+                <a href="#">收藏夹图标生成器</a>
+                <a href="#">邮件</a>
+                <a href="#">htaccess密码</a>
+                <a href="#">梯度图像</a>
+                <a href="#">按钮生成器</a>
+            </li>
+
+
+
+            <li class="colse">
+                <span class="menuSpan">支持我们</span>
+                <a href="#">推荐我们</a>
+                <a href="#">链接我们</a>
+                <a href="#">网络资源</a>
+            </li>
+
+
+            <li class="colse">
+                <span class="menuSpan">合作伙伴</span>
+                <a href="#">javasCript工具包</a>
+                <a href="#">CSS驱动</a>
+                <a href="#">CodingForums</a>
+                <a href="#">CSS例子</a>
+
+            </li>
+
+            <li class="colse">
+                <span class="menuSpan">测试电流</span>
+                <a href="#">Current or not</a>
+                <a href="#">Current or not</a>
+                <a href="#">Current or not</a>
+                <a href="#">Current or not</a>
+
+            </li>
+
+        </ul>
+
+
+        <script src="/尚硅谷JS练习/js/tools.js"></script>
+        <script>
+
+            //获取ul
+            var ul = document.getElementById("tools");
+            //获取li
+            var lis = ul.getElementsByTagName("li");
+            //获取所有的span
+            var spans = ul.getElementsByTagName("span");
+
+            //定义一个边两来表示打开的变量
+            var openLi = spans[0].parentNode;
+
+            for (var i = 0; i < spans.length; i++) {
+
+                //为span绑定单击响应函数
+                spans[i].onclick = function () {
+
+                    //保存父节点li
+                    parentLi = this.parentNode;
+
+                    toggleMenu(parentLi);
+
+
+                    //这里做一下判断, 如果是不是同一个li才加, 
+                    //这里可以将不打开的关闭
+                    if ((parentLi != openLi) && (!hasClass(openLi, "colse"))) {
+                        //关闭默认打开的那个li
+                        //addClass(openLi, "colse");
+                        //为了后边方便将add改成toggeClass
+                        //toggeClass(openLi, "colse")
+
+                        //该变关闭的速度
+                        toggleMenu(openLi);
+
+                    }
+
+                    //改变openLi的值为当前li下次, 就可以关闭当前li
+                    openLi = this.parentNode;
+                }
+            }
+
+            
+        </script>
+
+</body>
+
+</html>

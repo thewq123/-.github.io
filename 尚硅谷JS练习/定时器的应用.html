@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021年8月15日16:10:04</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        #box1 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #box2 {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+
+        .box2 {
+            position: absolute;
+            left: 800px;
+            width: 0;
+            height: 100%;
+            border-left: 1px solid #fff;
+        }
+
+        button {
+            float: right;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <div class="box2"></div>
+    <br><br><br><br>
+
+    <button id="btn01">右边</button>
+    <button id="btn02">左边</button><br><br><br>
+    <button id="btn03">右边</button>
+    <button id="btn04">测试</button>
+
+    <script src="js/tools.js"></script>
+    <script>
+ 
+
+        //box1绑定响应函数
+        var box1 = document.getElementById("box1");
+
+        //获取btn01
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");
+        var btn04 = document.getElementById("btn04");
+
+
+
+
+
+
+
+
+
+        btn01.onclick = function () {
+            //向左
+            move(box1, "left", 800, 100);
+
+
+            //            //关闭上一个定时器
+            //            clearInterval(timer);
+            //
+            //            //开启一个定时器
+            //            timer = setInterval(function () {
+            //                //获取box1原来的left值
+            //                var oldValue = parseInt(getStyle(box1, "left"));//获取到的值会带有px, 所以要用parsint
+            //
+            //                //在旧值的基础上增加
+            //                var newValue = oldValue + 10;
+            //
+            //
+            //                //判断偏移量, 让便宜量等于800
+            //                if (newValue > 800) {
+            //                    newValue = 800;
+            //                }
+            //
+            //                //设置box1的偏移量
+            //                box1.style.left = newValue + "px";
+            //
+            //
+            //
+            //                if (newValue == 800) {
+            //                    clearInterval(timer);
+            //                }
+            //            }, 30)
+        }
+        //
+        //        //向左
+        btn02.onclick = function () {
+            //调用函数
+            //向左
+            move(box1, "left", 0, 10);
+
+
+            //            //关闭上一个定时器
+            //            clearInterval(timer);
+            //
+            //            //开启一个定时器
+            //            timer = setInterval(function () {
+            //                //获取box1原来的left值
+            //                var oldValue = parseInt(getStyle(box1, "left"));//获取到的值会带有px, 所以要用parsint
+            //
+            //                //在旧值的基础上增加
+            //                var newValue = oldValue - 10;
+            //
+            //                //判断偏移量, 让便宜量等于800
+            //                if (newValue < 0) {
+            //                    newValue = 0;
+        }
+        //
+        //                //设置box1的偏移量
+        //                box1.style.left = newValue + "px";
+        //
+        //
+        //
+        //                if (newValue == 0) {
+        //                    clearInterval(timer);
+        //                }
+        //            }, 30)
+        //        }
+        //
+        //        //向上
+        btn03.onclick = function () {
+            //
+            //#box2也设置相同的东西
+            move(box2, "left", 800, 10);
+
+            //            //关闭上一个定时器
+            //            clearInterval(timer);
+            //
+            //
+            //            //开启一个定时器
+            //            timer = setInterval(function () {
+            //                //获取box1原来的left值
+            //                var oldValue = parseInt(getStyle(box1, "top"));//获取到的值会带有px, 所以要用parsint
+            //
+            //                //在旧值的基础上增加
+            //                var newValue = oldValue - 10;
+            //
+            //
+            //                //判断偏移量, 让便宜量等于800
+            //                if (newValue < 0) {
+            //                    newValue = 0;
+            //                }
+            //
+            //                //设置box1的偏移量
+            //                box1.style.top = newValue + "px";
+            //
+            //                if (newValue == 0) {
+            //                    clearInterval(timer);
+            //                }
+            //            }, 30)
+        }
+        //
+        //        //向下
+        btn04.onclick = function () {
+
+            //#box2也设置相同的东西
+            move(box2, "width", 800, 10, function () {
+                move(box2, "height", 401, 100, function () {
+                    move(box2, "top", 0, 10, function () {
+                        move(box2, "width", 200, 10, function () {
+                            move(box2, "height", 100, 10, function () {
+                                move(box2, "left", 500, 10, function () {
+                                    move(box2, "top", 500, 10, function () {
+                                        move(box2, "left", 1000, 10, function () {
+                                            move(box2, "top", 0, 10, function () {
+                                                move(box2, "left", 0, 10, function () {
+                                                    move(box2, "top", 200, 10, function () {
+                                                        move(box2, "width", 100, 10, function () {
+
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+
+                });
+
+            });
+
+            //            //关闭上一个定时器
+            //            clearInterval(timer);
+            //
+            //
+            //            //开启一个定时器
+            //            timer = setInterval(function () {
+            //                //获取box1原来的left值
+            //                var oldValue = parseInt(getStyle(box1, "top"));//获取到的值会带有px, 所以要用parsint
+            //
+            //                //在旧值的基础上增加
+            //                var newValue = oldValue + 10;
+            //
+            //                //判断偏移量, 让便宜量等于800
+            //                if (newValue > 800) {
+            //                    newValue = 800;
+            //                }
+            //
+            //                //设置box1的偏移量
+            //                box1.style.top = newValue + "px";
+            //
+            //                if (newValue == 800) {
+            //                    clearInterval(timer);
+            //                }
+            //            }, 30)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
